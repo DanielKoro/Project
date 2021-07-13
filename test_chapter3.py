@@ -1,10 +1,10 @@
 import pytest
-# from collections import namedtuple
-# import tasks
-# # Task element types : [summary: str, owner: str, done: bool, id: int]
-# Task = namedtuple('Task', ['summary', 'owner', 'done', 'id'])
-# Task.__new__.__defaults__ = (None, None, False, None)
-#
+from collections import namedtuple
+from tasks_proj.src import tasks
+#Task element types : [summary: str, owner: str, done: bool, id: int]
+Task = namedtuple('Task', ['summary', 'owner', 'done', 'id'])
+Task.__new__.__defaults__ = (None, None, False, None)
+
 
 
 @pytest.mark.smoke
@@ -14,7 +14,7 @@ def test_list_raises():
         tasks.list_tasks(owner=123)
 
 
-@pytest.mark.get @ pytest.mark.smoke
+@pytest.mark.get
 def test_get_raises():
     """get() should raise an exception with wrong type param."""
     with pytest.raises(TypeError):
