@@ -3,13 +3,27 @@ from collections import namedtuple
 from tasks_proj.src import tasks
 
 
-def test_practise():
-    assert (1, 2, 3) == (1, 2, 3)
 
-@pytest.mark.xfail()
-def test_practise1():
-    assert (1, 2, 3) == (3, 2, 1)
+@pytest.fixture()
+def tasks_db():
+
+    tasks.start_tasks_db(str(), 'tiny')
+    yield
+
+    tasks.stop_tasks_db()
 
 
-def test_practise2():
-    assert (1, 2, 3, 4) == (4, 3, 2, 1)
+
+
+@pytest.fixture()
+def my_fixture():
+    return 4
+
+
+def test_count(my_fixture):
+    assert my_fixture == 4
+    print(my_fixture)
+
+def test_count2():
+
+    print(tasks.count())
