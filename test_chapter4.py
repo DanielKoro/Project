@@ -3,16 +3,11 @@ from collections import namedtuple
 from tasks_proj.src import tasks
 
 
-
 @pytest.fixture()
 def tasks_db():
-
     tasks.start_tasks_db(str(), 'tiny')
     yield
-
     tasks.stop_tasks_db()
-
-
 
 
 @pytest.fixture()
@@ -24,6 +19,10 @@ def test_count(my_fixture):
     assert my_fixture == 4
     print(my_fixture)
 
-def test_count2():
 
-    print(tasks.count())
+def test_count2(tasks_db):
+    tasks.add(1)
+    tasks.add(2)
+    expected = 2
+    actual = tasks.count()
+    assert actual == expected
