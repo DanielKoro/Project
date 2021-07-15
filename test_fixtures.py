@@ -20,7 +20,10 @@ def test_one(daniel):
 @pytest.fixture(scope='module')
 def address():
     data = {"address": "20 North Park"}
-    return data
+
+    print(daniel)
+    yield data
+    print(address)
 
 
 def test_two(address):
@@ -48,3 +51,4 @@ def some_func():
 def some_function:
     pass
 """
+
