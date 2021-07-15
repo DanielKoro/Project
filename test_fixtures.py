@@ -17,8 +17,20 @@ def test_one(daniel):
     assert actual == expected
 
 
-@pytest.fixture(scope= 'module')
-def func_scope ():
+@pytest.fixture(scope='module')
+def address():
+    data = {"address": "20 North Park"}
+    return data
+
+
+def test_two(address):
+    expected = "20 North Park"
+    actual = address["address"]
+    assert actual == expected
+
+
+def some_func():
+    pass # it mean that I do not know yet what to write here. But function will throw an error.
 
 
 
