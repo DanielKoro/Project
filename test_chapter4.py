@@ -64,3 +64,5 @@ def test_count2(tasks_db):
     actual = tasks.count()
     # TODO: Make this test pass !!! Fine a way to clean all up after each test run
     assert actual == expected
+
+
