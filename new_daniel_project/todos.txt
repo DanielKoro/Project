@@ -1,8 +1,0 @@
-You got new project. Please start creating tests for it.
-
-What you will do ?
-
-Step 1: create tests directory (folder)
-Step 2: get or create necessary testing directories (func - functional tests, unit - unit tests) define any other necessary folders for testing
-Step 3: create two main config. files -- pytest.ini -- conftest.py --. And write necessary configurations inside.
-step 4: start writing test cases (which mean create test_<some_name> files in corresponding folders by test type (ex unit, func, etc)). And create test functions/classes/fixtures/etc. inside

@@ -53,12 +53,13 @@ def test_count2(tasks_db):
 
     #TODO: Create task instance (use class Task)
     tasks_one = tasks.Task(summary="Some tasks summary", owner="Alex", done=False)
-
     tasks.add(tasks_one)
+    tasks.delete(tasks_one)
+
     tasks_two = tasks.Task(summary="any value", owner="Daniel", done=True)
     tasks.add(tasks_two)
+    tasks.delete(tasks_two)
 
-    tasks.delete
 
     expected = 2
     actual = tasks.count()
