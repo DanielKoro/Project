@@ -27,6 +27,18 @@ class MyClass: # Here you create a class
         self.attr2 = attr2
         self.attr13 = attr3
 
+def list_tasks(owner=mone):
+
+def test_count3(list_tasks):
+
+
+def get (task_id):
+
+def test_count4(get)
+
+
+
+
 
 my_class_instance = MyClass(1, 2, 3)  # Here you create an instance of the class
 my_class_instance2 = MyClass(attr1=1, attr2=2, attr3=3)  # Here you create an instance of the class
@@ -65,5 +77,7 @@ def test_count2(tasks_db):
     actual = tasks.count()
     # TODO: Make this test pass !!! Fine a way to clean all up after each test run
     assert actual == expected
+
+
 
 
