@@ -73,17 +73,21 @@ def test_count2(tasks_db):
     #TODO: Create task instance (use class Task)
     tasks_one = tasks.Task(summary="Some tasks summary", owner="Alex", done=False)
     tasks.add(tasks_one)
-    tasks.delete(tasks_one.id)
 
     tasks_two = tasks.Task(summary="any value", owner="Daniel", done=True)
     tasks.add(tasks_two)
-    tasks.delete(tasks_two.id)
-
-
     expected = 2
     actual = tasks.count()
+
     # TODO: Make this test pass !!! Fine a way to clean all up after each test run
     assert actual == expected
+
+    tasks.delete_all()
+
+    tasks.list_tasks()
+
+
+
 
 
 
