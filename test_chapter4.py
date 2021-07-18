@@ -27,14 +27,21 @@ class MyClass: # Here you create a class
         self.attr2 = attr2
         self.attr13 = attr3
 
-def list_tasks(owner=mone):
+
+def list_tasks(owner=None):
+    return 3
+
 
 def test_count3(list_tasks):
+    pass
 
 
 def get (task_id):
+    pass
 
-def test_count4(get)
+
+def test_count4(get):
+    pass
 
 
 
@@ -66,11 +73,11 @@ def test_count2(tasks_db):
     #TODO: Create task instance (use class Task)
     tasks_one = tasks.Task(summary="Some tasks summary", owner="Alex", done=False)
     tasks.add(tasks_one)
-    tasks.delete(tasks_one)
+    tasks.delete(tasks_one.id)
 
     tasks_two = tasks.Task(summary="any value", owner="Daniel", done=True)
     tasks.add(tasks_two)
-    tasks.delete(tasks_two)
+    tasks.delete(tasks_two.id)
 
 
     expected = 2
