@@ -28,19 +28,18 @@ class MyClass: # Here you create a class
         self.attr13 = attr3
 
 
-def list_tasks(owner=None):
-    return 3
+def test_list_tasks(tasks_db):
+    #TODO
+    # create few tasks here
+    tasks_list = tasks.list_tasks()
+    assert len(tasks_list) != 0
+
+#TODO
+# fix this test case
+# write two more test cases
 
 
-def test_count3(list_tasks):
-    pass
-
-
-def get (task_id):
-    pass
-
-
-def test_count4(get):
+def test_count4():
     pass
 
 
