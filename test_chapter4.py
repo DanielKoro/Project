@@ -3,7 +3,6 @@ from collections import namedtuple
 from tasks_proj.src import tasks
 
 
-
 @pytest.fixture()
 def tasks_db():
     tasks.start_tasks_db(db_path=".", db_type='tiny')
@@ -21,29 +20,54 @@ def test_count(my_fixture):
     print(my_fixture)
 
 
+@pytest.fixture()
+def create_four_tasks(tasks_db):
+    tasks_two = tasks.Task(summary="hummus", owner="Daniel", done="yes")
+    tasks.add(tasks_two)
+    tasks_three = tasks.Task(summary="onion", owner="pytestmaster", done="almost")
+    tasks.add(tasks_three)
+    tasks_four = tasks.Task(summary="avacado", owner="many", done="sorta")
+    tasks.add(tasks_four)
+    tasks_five = tasks.Task(summary="alligator", owner="fedor", done="quite")
+    tasks.add(tasks_five)
+    yield
+    tasks.delete_all()
+
+
+def test_list_tasks(create_four_tasks):
+    tasks_list = tasks.list_tasks()
+    assert len(tasks_list) == 4
+
+
+def test_list_tasks2(create_four_tasks):
+    tasks_list = tasks.list_tasks()
+    assert "Daniel" in [task.owner for task in tasks_list]
+
+
+def test_list_tasks3(create_four_tasks):
+    tasks_list = tasks.list_tasks()
+    assert len(tasks_list) * 2 == 8
+
+
+def test_count2(tasks_db):
+    # TODO: Create fixture similar to "four_tasks" but to creat and removes 2 tasks and use it here
+    tasks_one = tasks.Task(summary="Some tasks summary", owner="Alex", done=False)
+    tasks.add(tasks_one)
+
+    tasks_two = tasks.Task(summary="any value", owner="Daniel", done=True)
+    tasks.add(tasks_two)
+    expected = 2
+    actual = tasks.count()
+    assert actual == expected
+    tasks.delete_all()
+    tasks.list_tasks()
+
+
 class MyClass: # Here you create a class
     def __init__(self, attr1, attr2, attr3):
         self.attr1 = attr1
         self.attr2 = attr2
         self.attr13 = attr3
-
-
-def test_list_tasks(tasks_db):
-    #TODO
-    # create few tasks here
-    tasks_list = tasks.list_tasks()
-    assert len(tasks_list) != 0
-
-#TODO
-# fix this test case
-# write two more test cases
-
-
-def test_count4():
-    pass
-
-
-
 
 
 my_class_instance = MyClass(1, 2, 3)  # Here you create an instance of the class
@@ -54,8 +78,18 @@ def my_func_with_args(arg1, arg2, arg3):  # Here we define a function
     print(arg1, arg2, arg3)
 
 
+def delete_everything():
+    """
+    If you cal me I will delete all
+    """
+    pass
+
+
 my_func_with_args(1, 2, 3)  # Here you call the function
 my_func_with_args(arg2=2, arg1=1, arg3=3)  # Here you call the function
+
+delete_everything()  # Here you call the function and it does the work you need
+delete_everything  # Here you just mentioned function but it does nothing
 
 
 def my_func():
@@ -65,29 +99,5 @@ def my_func():
 print(my_func)  # Here I am printing function
 
 print(my_func())  # Here I am calling function and printing what the function has returned to me. The "()" == "Hey function I am alling you 🚨"
-
-
-def test_count2(tasks_db):
-
-    #TODO: Create task instance (use class Task)
-    tasks_one = tasks.Task(summary="Some tasks summary", owner="Alex", done=False)
-    tasks.add(tasks_one)
-
-    tasks_two = tasks.Task(summary="any value", owner="Daniel", done=True)
-    tasks.add(tasks_two)
-    expected = 2
-    actual = tasks.count()
-
-    # TODO: Make this test pass !!! Fine a way to clean all up after each test run
-    assert actual == expected
-
-    tasks.delete_all()
-
-    tasks.list_tasks()
-
-
-
-
-
 
 
