@@ -60,16 +60,16 @@ def test_list_tasks3(create_four_tasks):
 
 def test_count2(tasks_db):
     # TODO: Create fixture similar to "four_tasks" but to creat and removes 2 tasks and use it here
-    tasks_1 = tasks.Task(summary="none", owner="none", done=False, id="none")
+    tasks_1 = tasks.Task(summary="none", owner="none", done=False)
     tasks.add(tasks_1)
 
-    tasks_2 = tasks.Task(summary="any value", owner="Daniel", done=False, id="none")
+    tasks_2 = tasks.Task(summary="any value", owner="Daniel", done=False)
     tasks.add(tasks_2)
     expected = 2
     actual = tasks.count()
     assert actual == expected
     tasks.delete_all()
-    #tasks.list_tasks()
+    tasks.list_tasks()
 
 
 class MyClass: # Here you create a class
