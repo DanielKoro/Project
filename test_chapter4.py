@@ -33,6 +33,7 @@ def create_four_tasks(tasks_db):
     yield
     tasks.delete_all()
 
+
 @pytest.fixture()
 def more_tasks(tasks_db):
     tasks_1 = tasks.Task(summary="none", owner="none", done=False, id="none")
