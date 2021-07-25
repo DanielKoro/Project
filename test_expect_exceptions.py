@@ -42,4 +42,4 @@ def test_failing_function():
         failing_function(Exception)
 
 
-    # TODO: Write tests for 2 other errors.
+
