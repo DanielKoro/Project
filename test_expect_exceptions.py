@@ -35,5 +35,11 @@ def test_failing_function():
         # You need to call the function we are testing so it raises the exception we expect
         failing_function(TypeError)
 
+    with pytest.raises(DanielPracticeError):
+        failing_function(DanielPracticeError)
+
+    with pytest.raises(Exception):
+        failing_function(Exception)
+
 
     # TODO: Write tests for 2 other errors.
