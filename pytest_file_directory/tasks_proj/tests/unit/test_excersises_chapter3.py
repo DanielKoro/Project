@@ -1,4 +1,3 @@
-"""Placeholder test file."""
 import pytest
 
 

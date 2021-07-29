@@ -26,9 +26,9 @@ def test_skip_with_condition2():
     pass
 
 
-@pytest.mark.skipif(PAYPALL_FEATURE is False, reason="Feature is disabled")
-def test_skip_with_condition2():
-    pass
+# @pytest.mark.skipif(PAYPAL_FEATURE is False, reason="Feature is disabled")
+# def test_skip_with_condition2():
+#     pass
 
 
 @pytest.mark.skip()
